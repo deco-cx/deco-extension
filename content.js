@@ -1,6 +1,6 @@
 
 function getDecoSegmentCookie(callback) {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs?.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs.length > 0) {
         const tab = tabs[0];
         const url = tab.url;
@@ -46,7 +46,7 @@ function getDecoSegmentCookie(callback) {
   });
 
 async function fillSiteInfo(){
-  chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
+  chrome.tabs?.query({ active: true, currentWindow: true }, async (tabs) => {
     if (tabs.length > 0) {
       const tab = tabs[0];
       const url = tab.url;
@@ -76,13 +76,13 @@ sanitizeAppName = (appName) => {
 
 fillSiteInfo()
 
-document.getElementById('general').addEventListener('click', function(){
+document.getElementById('general')?.addEventListener('click', function(){
   document.getElementById('general-content').classList.remove('hide');
   document.getElementById('more-info-content').classList.add('hide');
   document.getElementById('general').classList.add('selected');
   document.getElementById('more-info').classList.remove('selected');
 });
-document.getElementById('more-info').addEventListener('click', function(){
+document.getElementById('more-info')?.addEventListener('click', function(){
   document.getElementById('general-content').classList.add('hide');
   document.getElementById('more-info-content').classList.remove('hide');
   document.getElementById('general').classList.remove('selected');
